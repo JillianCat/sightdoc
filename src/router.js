@@ -11,7 +11,7 @@ export default {
     }, {
         path: '/patients',
         component: patients
-    },{
+    }, {
         path: '/async',
         component: () =>
             import ( /* webpackChunkName: "async" */ './components/async.vue')

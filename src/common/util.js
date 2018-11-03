@@ -1,10 +1,10 @@
 const util = {
-    getCookie: function(name) {
+    getCookie(name) {
         const arr = document.cookie.match(new RegExp("(^| )" + name + "=([^;]*)(;|$)"));
         if (arr != null) return unescape(arr[2]);
         return null;
     },
-    isLogin: function() {
+    isLogin() {
         // if (util.getCookie('CVR_R') === 1 || util.getCookie('CVR_R') === 2 || util.getCookie('CVR_R') === 3 || util.getCookie('CVR_R') === 4) {
         //     return true;
         // }

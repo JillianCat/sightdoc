@@ -77,8 +77,9 @@ html, body, .app {
                     </Menu>
                 </Header>
                 <Layout :style="{padding: '0 50px'}">
-                    <Content :style="{padding: '24px 0', margin: '36px 0 0', minHeight: '280px', background: '#fff'}">
-                        <Layout>
+                    <Content :style="{margin: '36px 0 0', minHeight: '280px', background: '#fff'}">
+                        <Login v-if="!isLogin"/>
+                        <Layout v-if="isLogin">
                             <Sider hide-trigger :style="{background: '#fff'}">
                                 <Menu active-name="1-2" theme="light" width="auto" :open-names="['1']">
                                     <Submenu name="1">
@@ -86,8 +87,12 @@ html, body, .app {
                                             <Icon type="ios-navigate"></Icon>
                                             患者管理
                                         </template>
-                                        <MenuItem name="1-1">患者列表</MenuItem>
-                                        <MenuItem name="1-2">新增患者</MenuItem>
+                                        <MenuItem name="1-1">
+                                            <router-link to="/patients">患者列表</router-link>
+                                        </MenuItem>
+                                        <MenuItem name="1-2">
+                                            <router-link to="/async">新增患者</router-link>
+                                        </MenuItem>
                                     </Submenu>
                                     <Submenu name="2">
                                         <template slot="title">
@@ -121,11 +126,12 @@ html, body, .app {
 
 <script>
 import util from './common/util';
+import Login from './components/login';
 
 export default {
     data() {
         return {
-            data: 1
+            isLogin: false
         };
     },
     methods: {
@@ -138,6 +144,15 @@ export default {
             }
         }
     },
-    mounted() {}
+    mounted() {
+        if (util.isLogin()) {
+            this.isLogin = false;
+            // 根据用户身份 push 路由
+            // this.$router.push('/login');
+        }
+    },
+    components: {
+        Login: Login
+    }
 };
 </script>
