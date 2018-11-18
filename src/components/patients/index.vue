@@ -66,7 +66,9 @@ export default {
                                 },
                                 on: {
                                     click: () => {
-                                        this.show(params.index)
+                                        // this.show(params.index)
+                                        this.$router.push('/patientdetails');
+                                        // window.location.href = "/patientss#/patientdetails";
                                     }
                                 }
                             }, '查看详情')

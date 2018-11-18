@@ -93,13 +93,16 @@ html, body, .app {
                                         <MenuItem name="1-2">
                                             <router-link to="/async">新增患者</router-link>
                                         </MenuItem>
+                                        <MenuItem name="1-3">
+                                            <router-link to="/patientdetails">患者详情</router-link>
+                                        </MenuItem>
                                     </Submenu>
                                     <Submenu name="2">
                                         <template slot="title">
                                             <Icon type="ios-keypad"></Icon>
                                             数据管理
                                         </template>
-                                        <MenuItem name="2-1">导入数据</MenuItem>
+                                        <MenuItem name="2-1">导入数据</MenuItem>  
                                     </Submenu>
                                 </Menu>
                             </Sider>
@@ -131,7 +134,8 @@ import Login from './components/login';
 export default {
     data() {
         return {
-            isLogin: false
+            // isLogin: false
+            isLogin: true
         };
     },
     methods: {
